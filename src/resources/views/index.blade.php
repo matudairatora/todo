@@ -2,15 +2,16 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+ <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
 @endsection
 
 @section('content')
-    @if (session('success'))
+
         <div class="alert alert-success">
-            {{ session('success') }}
+            <p class="alert-success__p">Todoを作成しました</p>
         </div>
-    @endif
-<form class="form" action="todo" method="post">
+<div class=body>
+<form class="form" action="/todos" method="post">
 @csrf
     <div class="form__group">
         <div class="form__group-todo">
@@ -31,13 +32,13 @@
         <tr>
             <td></td>
             <td>
-                <form class="form" action="update" method="post">
+                <form class="form-update" action="update" method="post">
                     @csrf
                     <button class="update__button-submit" type="submit">更新</button>
                 </form>
             </td>
             <td>
-                <form class="form" action="delete" method="post">
+                <form class="form-delete" action="delete" method="post">
                     @csrf
                     <button class="delete__button-submit" type="submit">削除</button>
                 </form>
@@ -46,6 +47,6 @@
        
     </table>
 </div>
-
+</div>
 
 @endsection

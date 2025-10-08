@@ -1,0 +1,159 @@
+/* ================================ */
+/* 基本設定 */
+/* ================================ */
+
+
+/* メインコンテナ (.body): 中央寄せと白背景のコンテナ */
+.body {
+    /* 左右の余白と中央寄せを実現 */
+    max-width: 600px;
+    /* コンテンツの最大幅を指定 */
+    margin: 0 auto;
+    /* 左右の余白を自動にし、中央寄せにする */
+
+    background-color: #fff;
+    /* 白い背景色 */
+    /* 上下30px、左右40pxの内側の余白（パディング） */
+    padding: 30px 40px;
+
+}
+
+/* ================================ */
+/* 成功メッセージ */
+/* ================================ */
+/* .body の外側にあるため、幅を合わせて中央寄せにする */
+.alert-success {
+    /* .body と同じ中央寄せのスタイルを適用 */
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+    /* 左右中央、下に20pxのマージン */
+
+    background-color: #d4edda;
+    /* 薄い緑色の背景 */
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    /* 濃い緑色の文字 */
+    padding: 10px 20px;
+
+}
+
+.alert-success__p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* ================================ */
+/* フォーム（作成部分） */
+/* ================================ */
+.form {
+    margin-bottom: 30px;
+}
+
+.form__group {
+    display: flex;
+    /* 入力欄とボタンを横並びにする */
+    gap: 30px;
+    /* 要素間のスペース */
+    align-items: center;
+}
+
+.form__group-todo {
+    flex-grow: 1;
+    /* 入力欄を最大限広げる */
+}
+
+.form__group-todo-input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form__button-submit {
+    /* 「作成」ボタンのスタイル */
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    min-width: 80px;
+}
+
+/* ================================ */
+/* Todoリスト表示 */
+/* ================================ */
+.todo-list {
+    margin-top: 30px;
+}
+
+.todo-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.todo-list th {
+    /* Todoリストのヘッダー */
+    background-color: #ffffff;
+    text-align: left;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.todo-list td {
+    /* 各行のセル */
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+/* Todo内容のセル */
+.todo-list tr td:first-child {
+    width: 70%;
+    font-size: 15px;
+    color: #333;
+}
+
+/* ================================ */
+/* 更新・削除ボタン */
+/* ================================ */
+.form-update,
+.form-delete {
+    display: inline-block;
+}
+
+.update__button-submit {
+    /* 更新ボタン (青色) */
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete__button-submit {
+    /* 削除ボタン (赤色) */
+    padding: 8px 15px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* ボタン列の幅を調整 */
+.todo-list tr td:nth-child(2),
+.todo-list tr td:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
