@@ -4,16 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Todo;
+
+use App\Http\Requests\TodoRequest;
+
 class TodoController extends Controller
 {
     public function index(){
-        return view('index');
+        $todos = Todo::all();
+
+        return view('index',['todos' => $todos]);
     }
-    public function store(Request $request){
+    public function store(TodoRequest $request){
         $todo = $request->only(['content']);
         Todo::create($todo);
         
-        return redirect('/');
+        return redirect('/')->with('flash_message', 'Todoを作成しました');
 
     }
+
+    public function update(Request $request){
+        $todo = $request->only(['content']);
+        Todo::find($request->id)->update($todo);
+        return redirect('/')->with('flash_message', 'Todoを更新しました');
+
+    }
+    public function destroy(Request $request){
+        Todo::find($request->id)->delete();
+        return redirect('/')->with('flash_message', 'Todoを削除しました');
+
+    }
+
 }
